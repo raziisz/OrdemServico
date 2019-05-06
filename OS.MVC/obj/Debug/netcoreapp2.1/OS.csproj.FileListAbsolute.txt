@@ -39,3 +39,5 @@ C:\ProjetosCode\OS\OS.MVC\obj\Debug\netcoreapp2.1\Razor\Views\Funcionarios\Detai
 C:\ProjetosCode\OS\OS.MVC\obj\Debug\netcoreapp2.1\Razor\Views\Funcionarios\Edit.g.cshtml.cs
 C:\ProjetosCode\OS\OS.MVC\obj\Debug\netcoreapp2.1\Razor\Views\OrdemServicos\Index.g.cshtml.cs
 C:\ProjetosCode\OS\OS.MVC\obj\Debug\netcoreapp2.1\Razor\Views\OrdemServicos\Create.g.cshtml.cs
+C:\ProjetosCode\OS\OS.MVC\obj\Debug\netcoreapp2.1\Razor\Views\OrdemServicos\PesquisarDatas.g.cshtml.cs
+C:\ProjetosCode\OS\OS.MVC\obj\Debug\netcoreapp2.1\Razor\Views\OrdemServicos\GrupoDepartamento.g.cshtml.cs

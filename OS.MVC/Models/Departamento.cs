@@ -19,5 +19,10 @@ namespace OS.MVC.Models
             Id = id;
             Descricao = descricao;
         }
+
+        public void AddFunc(Funcionario funcionario)
+        {
+            Funcionarios.Add(funcionario);
+        }
     }
 }

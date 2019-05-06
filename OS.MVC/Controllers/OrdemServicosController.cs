@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using OS.MVC.Models;
@@ -36,6 +37,38 @@ namespace OS.MVC.Controllers
         {
             await _ordemServicoService.AdicionarOS(ordemServico);
             return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> PesquisarDatas(DateTime? minDate, DateTime? maxDate)
+        {
+            if(!minDate.HasValue)
+            {
+                minDate = new DateTime(DateTime.Now.Year, 1, 1);
+            }
+            if(!maxDate.HasValue)
+            {
+                maxDate = DateTime.Now;
+            }
+            ViewData["minDate"] = minDate.Value.ToString("yyyy-MM-dd");
+            ViewData["maxDate"] = maxDate.Value.ToString("yyyy-MM-dd");
+            var result = await _ordemServicoService.FindByDate(minDate, maxDate);
+            return View(result);
+        }
+
+        public async Task<IActionResult> GrupoDepartamento(DateTime? minDate, DateTime? maxDate)
+        {
+            if(!minDate.HasValue)
+            {
+                minDate = new DateTime(DateTime.Now.Year, 1, 1);
+            }
+            if(!maxDate.HasValue)
+            {
+                maxDate = DateTime.Now;
+            }
+            ViewData["minDate"] = minDate.Value.ToString("yyyy-MM-dd");
+            ViewData["maxDate"] = maxDate.Value.ToString("yyyy-MM-dd");
+            var result = await _ordemServicoService.FindByDateDep(minDate, maxDate);
+            return View(result);
         }
     }
 }

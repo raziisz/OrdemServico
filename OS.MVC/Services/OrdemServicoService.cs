@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace OS.MVC.Services
 
         public async Task<List<OrdemServico>> FindAllOS()
         {
-            return await _context.OrdemServico.Include(x => x.Funcionario).ToListAsync();
+            return await _context.OrdemServico.Include(x => x.Funcionario).OrderBy(y => y.DataRegistro).ToListAsync();
         }
         public async Task<OrdemServico> FindById(int id)
         {
@@ -54,6 +55,43 @@ namespace OS.MVC.Services
             {
                 throw new DbConcurrencyException(e.Message);
             }
+        }
+
+        public async Task<List<OrdemServico>> FindByDate(DateTime? minDate, DateTime? maxDate)
+        {
+            var resultado = from obj in _context.OrdemServico select obj; //criando objeto do tipo Iqueryable para melhorar a consulta
+            if (minDate.HasValue) 
+            {
+                resultado = resultado.Where(x => x.DataRegistro >= minDate.Value);
+            }
+            if(maxDate.HasValue)
+            {
+                resultado = resultado.Where(x => x.DataRegistro <= maxDate.Value);
+            }
+
+            return await resultado
+            .Include(f => f.Funcionario)
+            .OrderByDescending(d => d.DataRegistro)
+            .ToListAsync();
+        }
+        public async Task<List<IGrouping<Departamento,OrdemServico>>> FindByDateDep(DateTime? minDate, DateTime? maxDate)
+        {
+            var resultado = from obj in _context.OrdemServico select obj; //criando objeto do tipo Iqueryable para melhorar a consulta
+            if (minDate.HasValue) 
+            {
+                resultado = resultado.Where(x => x.DataRegistro >= minDate.Value);
+            }
+            if(maxDate.HasValue)
+            {
+                resultado = resultado.Where(x => x.DataRegistro <= maxDate.Value);
+            }
+
+            return await resultado
+            .Include(f => f.Funcionario)
+            .Include(d => d.Funcionario.Departamento)
+            .OrderByDescending(d => d.DataRegistro)
+            .GroupBy(x => x.Funcionario.Departamento)
+            .ToListAsync();
         }
     }
 }
