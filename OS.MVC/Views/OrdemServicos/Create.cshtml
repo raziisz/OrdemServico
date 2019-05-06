@@ -1,0 +1,33 @@
+@model OS.MVC.Models.ViewModels.OSFormViewModel
+<h2>Criar</h2>
+
+<h4>Ordem de Serviço</h4>
+<hr>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label asp-for="OrdemServico.Descricao" class="control-label"></label>
+                <input asp-for="OrdemServico.Descricao" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrdemServico.TipoOrdem" class="control-label"></label>
+                <select asp-for="OrdemServico.TipoOrdem" class="form-control"/>
+                    <option>TI</option>
+                    <option>Programação</option>
+                    <option>Serviços</option>
+                    <option>Manutenção</option>
+                </select>
+            </div>
+
+            <div class="form-group">  
+                <label asp-for="OrdemServico.Funcionario" class="control-label"></label>
+                <select asp-for="OrdemServico.FuncionarioId" asp-items="@(new SelectList(Model.Funcionarios,"Id",
+                "Nome"))" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Criar" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>

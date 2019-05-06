@@ -1,0 +1,87 @@
+@model OS.MVC.Models.Funcionario
+
+@{
+    ViewData["Title"] = "Detalhes";
+
+}
+
+<h2>@ViewData["Title"]</h2>
+
+
+
+<div>
+    <h4>Funcionario</h4>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cargo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cargo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Departamento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Departamento.Descricao)
+        </dd>
+        <hr>
+    </dl>
+</div>
+<div>
+     <h3>Ordem de Serviços</h3>
+     <table class="table table-striped table-hover">
+            <thead>
+                <tr class="success">
+                    <th>
+                       Descricao
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        Data cadastro
+                    </th>
+                    <th>
+                        Tipo Ordem
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if(Model.OrdemServicos != null)
+                {
+                 foreach (var item in Model.OrdemServicos)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Descricao)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DataRegistro)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TipoOrdem)
+                            </td>
+                        </tr>
+                    }
+                } else {
+                    <tr>
+                        <td>Sem Ordem de serviços</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-default">Editar</a>
+    <a asp-action="Index">Voltar Lista</a>
+</div>
