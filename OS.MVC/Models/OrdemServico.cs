@@ -8,6 +8,7 @@ namespace OS.MVC.Models
     {
         public int Id { get; set; }
         [Display(Name = "Descrição")]
+        [Required(ErrorMessage = "Preencher {0}")]
         public string Descricao { get; set; }
         [Display(Name = "Tipo de Ordem")]
         public string TipoOrdem { get; set; }
@@ -15,10 +16,12 @@ namespace OS.MVC.Models
 
         [Display(Name = "Data Registrada")]
         [DataType(DataType.DateTime)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy HH:mm}")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DataRegistro { get; set; }
 
         [Display(Name = "Data Finalizada")]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DataFinalizada { get; set; }
         public Funcionario Funcionario { get; set; }
         public int FuncionarioId { get; set; }
@@ -27,15 +30,15 @@ namespace OS.MVC.Models
         {
             
         }
-        public OrdemServico(int id, string descricao, string tipoOrdem, OsStatus status, DateTime dataRegistro,  Funcionario funcionario)
+        public OrdemServico(int id, string descricao, string tipoOrdem, Funcionario funcionario)
         {
             Id = id;
             Descricao = descricao;
             TipoOrdem = tipoOrdem;
-            // Status = Enum.Parse<OsStatus>("Iniciado");
-            // DataRegistro = DateTime.Now;
-            Status = status;
-            DataRegistro = dataRegistro;
+            Status = Enum.Parse<OsStatus>("Iniciado");
+            DataRegistro = DateTime.Now;
+            // Status = status;
+            // DataRegistro = dataRegistro;
             Funcionario = funcionario;
         }
     }

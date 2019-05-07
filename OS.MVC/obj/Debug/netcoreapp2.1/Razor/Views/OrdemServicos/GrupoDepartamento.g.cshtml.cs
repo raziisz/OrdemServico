@@ -81,7 +81,7 @@ Write(ViewData["Title"]);
             WriteLiteral(" </h2>\r\n\r\n<nav class=\"navbar navbar-inverse\">\r\n    <div class=\"container-fluid\">\r\n        ");
             EndContext();
             BeginContext(416, 672, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f704a5b4999347ed9de9348edbbdfe15", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e37bf1e8b73e44b7b76222bfe65a7293", async() => {
                 BeginContext(468, 218, true);
                 WriteLiteral("\r\n            <div class=\"form-group\">\r\n                <div class=\"form-group\">\r\n                    <label for=\"minDate\">Data mínima</label>\r\n                    <input type=\"date\" class=\"form-control\" name=\"minDate\"");
                 EndContext();
@@ -227,7 +227,7 @@ WriteAttributeValue("", 928, ViewData["maxDate"], 928, 20, false);
             WriteLiteral("\r\n                    </td>\r\n                    <td>\r\n                        ");
             EndContext();
             BeginContext(2656, 53, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ddaab76b5ace41ea8ee73358f1445548", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "222a4fece9f344c196fff7c99bc49793", async() => {
                 BeginContext(2701, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -262,7 +262,7 @@ WriteAttributeValue("", 928, ViewData["maxDate"], 928, 20, false);
             WriteLiteral("\r\n                        ");
             EndContext();
             BeginContext(2735, 59, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ab08c6df93704288a49d419f73ef00c0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2dd1c89367b64008b82867466edd4df4", async() => {
                 BeginContext(2783, 7, true);
                 WriteLiteral("Details");
                 EndContext();
@@ -297,7 +297,7 @@ WriteAttributeValue("", 928, ViewData["maxDate"], 928, 20, false);
             WriteLiteral("\r\n                        ");
             EndContext();
             BeginContext(2820, 57, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "70399d0ab0bf4373b3aaf3009120a10e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d52534f1758a4b0e941269cb21ea0e70", async() => {
                 BeginContext(2867, 6, true);
                 WriteLiteral("Delete");
                 EndContext();
