@@ -24,7 +24,10 @@ namespace OS.MVC.Services
         }
         public async Task<OrdemServico> FindById(int id)
         {
-            var os = await _context.OrdemServico.Include(x => x.Funcionario).FirstOrDefaultAsync(y => y.Id == id);
+            var os = await _context.OrdemServico
+            .Include(z => z.Funcionario.Departamento)
+            .Include(x => x.Funcionario)
+            .FirstOrDefaultAsync(y => y.Id == id);
             return os;
         }
         public async Task Remove (int id)

@@ -1,9 +1,12 @@
 using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using OS.Models.ViewModels;
 using OS.MVC.Models;
 using OS.MVC.Models.ViewModels;
 using OS.MVC.Services;
+using OS.MVC.Services.Exceptions;
 
 namespace OS.MVC.Controllers
 {
@@ -69,6 +72,58 @@ namespace OS.MVC.Controllers
             ViewData["maxDate"] = maxDate.Value.ToString("yyyy-MM-dd");
             var result = await _ordemServicoService.FindByDateDep(minDate, maxDate);
             return View(result);
+        }
+
+        public async Task<IActionResult> Cancelar(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction(nameof(Error), new {message ="Id não foi fornecido"});
+            }
+
+            var obj = await _ordemServicoService.FindById(id.Value);
+            if (obj == null)
+            {
+                return RedirectToAction(nameof(Error), new {message ="Id não encontrado"});
+            }
+
+            return View(obj);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Cancelar(int id, OrdemServico ordemServico)
+        {
+            if (id != ordemServico.Id)
+            {
+                return RedirectToAction(nameof(Error), new {message ="Id OS solicitado não correspondem"});
+            }
+            var os = await _ordemServicoService.FindById(ordemServico.Id);
+            os.Status = Enum.Parse<OsStatus>("Cancelado");
+            os.DataFinalizada = DateTime.Now;
+            try
+            {
+                await _ordemServicoService.AtualizarOS(os);
+                return RedirectToAction(nameof(Index));
+            }
+            catch(NotFoundException e) 
+            {
+                return RedirectToAction(nameof(Error), new {message = e.Message});
+            }
+            catch (DbConcurrencyException e)
+            {
+                return RedirectToAction(nameof(Error), new {message = e.Message});
+            }
+
+        }
+        public IActionResult Error (string message)
+        {
+            var viewModel = new ErrorViewModel
+            {
+                Message = message,
+                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+            };
+            return View(viewModel);
         }
     }
 }

@@ -16,7 +16,7 @@ namespace OS.MVC.Models
         public int DepartamentoId { get; set; }
 
         [Required(ErrorMessage = "Preencher {0}")]
-        [StringLength(30, MinimumLength = 4, ErrorMessage = "Tamanho do {0} deve ser entre {2} a {1} caracteres")]
+        [StringLength(30, MinimumLength = 2, ErrorMessage = "Tamanho do {0} deve ser entre {2} a {1} caracteres")]
         public string Cargo { get; set; }
         public ICollection<OrdemServico> OrdemServicos { get; set; }
 
