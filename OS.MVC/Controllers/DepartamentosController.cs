@@ -31,5 +31,11 @@ namespace OS.MVC.Controllers
             await _funcionarioService.AdicionarDep(departamento);
             return RedirectToAction(nameof(Index));
         }
+
+        public async Task<IActionResult> Details()
+        {
+            var lista = await _funcionarioService.FindAllDep();
+            return View(lista);
+        }
     }
 }

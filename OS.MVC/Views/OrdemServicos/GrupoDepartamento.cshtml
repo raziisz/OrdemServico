@@ -48,6 +48,9 @@
                     Data Registrada
                 </th>
                 <th>
+                    Data Finalizada
+                </th>
+                <th>
                     Funcionario responsavel
                 </th>
                 <th></th>
@@ -69,6 +72,16 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.DataRegistro)
                     </td>
+                    @if(item.DataFinalizada != DateTime.Parse("01/01/0001"))
+                    {
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataFinalizada)
+                        </td>
+                    } else {
+                        <td class="text-danger">
+                        --/--/----
+                        </td>
+                    }
                     <td>
                         @Html.DisplayFor(modelItem => item.Funcionario.Nome)
                     </td>

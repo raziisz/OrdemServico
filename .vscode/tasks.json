@@ -19,7 +19,11 @@
                 "publish",
                 "${workspaceFolder}/OS.MVC/OS.csproj"
             ],
-            "problemMatcher": "$tsc"
+            "problemMatcher": "$tsc",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         },
         {
             "label": "watch",

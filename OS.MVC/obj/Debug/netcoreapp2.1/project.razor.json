@@ -2741,6 +2741,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Departamentos\\Details.cshtml",
+      "TargetPath": "Views\\Departamentos\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\Funcionarios\\Details.cshtml",
       "TargetPath": "Views\\Funcionarios\\Details.cshtml",
       "FileKind": "mvc"
@@ -2748,6 +2753,11 @@
     {
       "FilePath": "Views\\OrdemServicos\\PesquisarDatas.cshtml",
       "TargetPath": "Views\\OrdemServicos\\PesquisarDatas.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Home\\Login.cshtml",
+      "TargetPath": "Views\\Home\\Login.cshtml",
       "FileKind": "mvc"
     },
     {

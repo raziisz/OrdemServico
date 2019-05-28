@@ -69,10 +69,22 @@ namespace OS.MVC.Services
                 throw new DbConcurrencyException(e.Message);
             }
         }
+
+        public async Task<Funcionario> Login (Funcionario func) 
+        {
+            var funcDB = await _context.Funcionario.FirstOrDefaultAsync(f => f.Login == func.Login && f.Senha == func.Senha);
+            if (funcDB == null)
+            {
+                throw new NotFoundException("Usuário inválido");
+            }
+            return funcDB;
+        }
         //DepartamentoServices Abaixo
         public async Task<List<Departamento>> FindAllDep()
         {
-            return await _context.Departamento.OrderBy(x => x.Descricao).ToListAsync();
+            return await _context.Departamento.OrderBy(x => x.Descricao)
+                                .Include(d => d.Funcionarios)
+                                .ToListAsync();
         }
 
 

@@ -41,15 +41,15 @@ namespace OS.MVC.Models
             DataRegistro = dataRegistro;
             Funcionario = funcionario;
         }
-        public OrdemServico(int id, string descricao, string tipoOrdem, Funcionario funcionario, DateTime dataFinalizada)
+        public OrdemServico(int id, string descricao, string tipoOrdem, OsStatus status, DateTime dataRegistro, Funcionario funcionario, DateTime dataFinalizada)
         {
             Id = id;
             Descricao = descricao;
             TipoOrdem = tipoOrdem;
-            Status = Enum.Parse<OsStatus>("Iniciado");
-            DataRegistro = DateTime.Now;
-            // Status = status;
-            // DataRegistro = dataRegistro;
+            // Status = Enum.Parse<OsStatus>("Iniciado");
+            // DataRegistro = DateTime.Now;
+            Status = status;
+            DataRegistro = dataRegistro;
             Funcionario = funcionario;
             DataFinalizada = dataFinalizada;
         }

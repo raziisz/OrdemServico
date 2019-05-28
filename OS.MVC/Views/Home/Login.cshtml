@@ -1,0 +1,28 @@
+@{
+    Layout = null;
+    ViewData["Title"] = "Login";
+@model OS.MVC.Models.Funcionario
+}
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-flatly.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+
+<div class="container">
+    <div class="jumbotron">
+        <h3>Sistema de Ordem de Serviço</h3>
+      <form class="form-signin" asp-action="Verify">
+        <h4 class="form-signin-heading">Por favor fazer login</h4>
+        <label asp-for="Login" class="sr-only">Email address</label>
+        <input type="text" asp-for="Login" class="form-control" placeholder="Login acesso">
+        <label asp-for="Senha" class="sr-only">Password</label>
+        <input type="password" asp-for="Senha" class="form-control" placeholder="Senha">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Lembrar
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Logar</button>
+      </form>
+
+    </div>
+
+</div>
