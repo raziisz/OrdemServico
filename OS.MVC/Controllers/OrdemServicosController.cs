@@ -116,6 +116,66 @@ namespace OS.MVC.Controllers
             }
 
         }
+
+        public async Task<IActionResult> Finalizar (int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction(nameof(Error), new {message ="Id não foi fornecido"});
+            }
+
+            var obj = await _ordemServicoService.FindById(id.Value);
+            if (obj == null)
+            {
+                return RedirectToAction(nameof(Error), new {message ="Id não encontrado"});
+            }
+
+            return View(obj);
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Finalizar(int id, OrdemServico ordemServico)
+        {
+            if (id != ordemServico.Id)
+            {
+                return RedirectToAction(nameof(Error), new {message ="Id OS solicitado não correspondem"});
+            }
+            var os = await _ordemServicoService.FindById(ordemServico.Id);
+            os.Status = Enum.Parse<OsStatus>("Finalizado");
+            os.DataFinalizada = DateTime.Now;
+            try
+            {
+                await _ordemServicoService.AtualizarOS(os);
+                return RedirectToAction(nameof(Index));
+            }
+            catch(NotFoundException e) 
+            {
+                return RedirectToAction(nameof(Error), new {message = e.Message});
+            }
+            catch (DbConcurrencyException e)
+            {
+                return RedirectToAction(nameof(Error), new {message = e.Message});
+            }
+
+        }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction(nameof(Error), new {message ="Id não foi fornecido"});
+            }
+            var os = await _ordemServicoService.FindById(id.Value);
+            if (os == null)
+            {
+                return RedirectToAction(nameof(Error), new {message ="Id não encontrado"});
+            }
+            return View(os);
+        }
+
+
         public IActionResult Error (string message)
         {
             var viewModel = new ErrorViewModel

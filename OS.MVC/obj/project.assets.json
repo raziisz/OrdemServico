@@ -12070,11 +12070,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\ProjetosCode\\OS\\OS.MVC\\OS.csproj",
+      "projectUniqueName": "c:\\ProjetosCode\\OrdemServico\\OS.MVC\\OS.csproj",
       "projectName": "OS",
-      "projectPath": "C:\\ProjetosCode\\OS\\OS.MVC\\OS.csproj",
+      "projectPath": "c:\\ProjetosCode\\OrdemServico\\OS.MVC\\OS.csproj",
       "packagesPath": "C:\\Users\\Razi\\.nuget\\packages\\",
-      "outputPath": "C:\\ProjetosCode\\OS\\OS.MVC\\obj\\",
+      "outputPath": "c:\\ProjetosCode\\OrdemServico\\OS.MVC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

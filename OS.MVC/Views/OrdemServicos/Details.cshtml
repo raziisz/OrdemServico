@@ -1,0 +1,76 @@
+@model OrdemServico
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <h4> Ordem de Serviço executada pelo Funcionario</h4>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Funcionario.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Funcionario.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Funcionario.Cargo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Funcionario.Cargo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Funcionario.Departamento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Funcionario.Departamento.Descricao)
+        </dd>
+        <hr>
+    </dl>
+
+    <h4>Detalhes da OS</h4>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataRegistro)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataRegistro)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataFinalizada)
+        </dt>
+        @if(Model.DataFinalizada.Date != DateTime.Parse("0001-01-01"))
+        {
+            <dd>
+                @Html.DisplayFor(model => model.DataFinalizada)
+            </dd>
+        } else {
+            <dd>
+                <label class="text-danger">Não finalizada</label>
+            </dd>
+        }    
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoOrdem)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TipoOrdem)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <hr>
+    </dl>
+</div>

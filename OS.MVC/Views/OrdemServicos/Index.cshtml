@@ -75,8 +75,10 @@
                             @Html.DisplayFor(modelItem => item.Funcionario.Nome)
                         </td>
                         <td class="btn-group">
-                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Finalizar</a>
-                            <a asp-action="Cancelar" asp-route-id="@item.Id" class="btn btn-danger" id="cancelar">Cancelar</a>
+                            <a asp-action="Finalizar" asp-route-id="@item.Id" class="btn btn-success">
+                                <span><i class="glyphicon glyphicon-ok"></i></span> Finalizar</a>
+                            <a asp-action="Cancelar" asp-route-id="@item.Id" class="btn btn-danger" id="cancelar">
+                                <span><i class="glyphicon glyphicon-ban-circle"></i></span> Cancelar</a>
                         </td>
                     </tr>
                 }

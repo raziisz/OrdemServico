@@ -1,0 +1,36 @@
+@model OS.MVC.Models.OrdemServico
+<h2 class="text-success">Finalizando Ordem de Serviço</h2>
+
+<h4>Ordem de Serviço</h4>
+<hr>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Finalizar">
+            <input type="hidden" asp-for="Id">
+            <div class="form-group">
+                <label asp-for="Descricao" class="control-label"></label>
+                <p>@Html.DisplayFor(modelItem => Model.Descricao)</p>
+            </div>
+            <div class="form-group">
+                <label asp-for="Funcionario.Nome" class="control-label">Nome do executor da OS</label>
+                <p>@Html.DisplayFor(modelItem => Model.Funcionario.Nome)</p>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoOrdem" class="control-label"></label>
+                <p>@Html.DisplayFor(modelItem => Model.TipoOrdem)</p>
+            </div>
+            <div class="form-group">
+                <label asp-for="Funcionario.Departamento" class="control-label"></label>
+                <p>@Html.DisplayFor(modelItem => Model.Funcionario.Departamento.Descricao)</p>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataRegistro" class="control-label"></label>
+                <p>@Html.DisplayFor(modelItem => Model.DataRegistro)</p>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Finalizar" class="btn btn-success"/>
+                <a asp-action="Index" class="btn btn-default">Voltar para Lista</a>
+            </div>
+        </form>
+    </div>
+</div>

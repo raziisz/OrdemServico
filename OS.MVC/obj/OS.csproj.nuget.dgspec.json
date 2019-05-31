@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\ProjetosCode\\OS\\OS.MVC\\OS.csproj": {}
+    "C:\\ProjetosCode\\OrdemServico\\OS.MVC\\OS.csproj": {}
   },
   "projects": {
-    "C:\\ProjetosCode\\OS\\OS.MVC\\OS.csproj": {
+    "C:\\ProjetosCode\\OrdemServico\\OS.MVC\\OS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ProjetosCode\\OS\\OS.MVC\\OS.csproj",
+        "projectUniqueName": "C:\\ProjetosCode\\OrdemServico\\OS.MVC\\OS.csproj",
         "projectName": "OS",
-        "projectPath": "C:\\ProjetosCode\\OS\\OS.MVC\\OS.csproj",
+        "projectPath": "C:\\ProjetosCode\\OrdemServico\\OS.MVC\\OS.csproj",
         "packagesPath": "C:\\Users\\Razi\\.nuget\\packages\\",
-        "outputPath": "C:\\ProjetosCode\\OS\\OS.MVC\\obj\\",
+        "outputPath": "C:\\ProjetosCode\\OrdemServico\\OS.MVC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

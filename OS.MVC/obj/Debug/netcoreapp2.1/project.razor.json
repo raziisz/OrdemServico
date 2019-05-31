@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\ProjetosCode\\OS\\OS.MVC\\OS.csproj",
+  "FilePath": "c:\\ProjetosCode\\OrdemServico\\OS.MVC\\OS.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-2.1",
     "LanguageVersion": "2.1",
@@ -2716,6 +2716,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\OrdemServicos\\Finalizar.cshtml",
+      "TargetPath": "Views\\OrdemServicos\\Finalizar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\Funcionarios\\Edit.cshtml",
       "TargetPath": "Views\\Funcionarios\\Edit.cshtml",
       "FileKind": "mvc"
@@ -2778,6 +2783,11 @@
     {
       "FilePath": "Views\\Funcionarios\\Create.cshtml",
       "TargetPath": "Views\\Funcionarios\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\OrdemServicos\\Details.cshtml",
+      "TargetPath": "Views\\OrdemServicos\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
